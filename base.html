@@ -35,7 +35,7 @@
 <body>
 	<!-- Navbar -->
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-		<div class="container-fluid">
+		<div class="container">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="#">ShortlistR</a>
 			</div>
@@ -55,7 +55,7 @@
 	</nav>
 
 	<!-- Main Content -->
-	<div class="container-fluid">
+	<div class="container">
 		<div class="row">
 			<!-- Existing Rankings -->
 			<div class="col-md-3">
@@ -145,6 +145,33 @@
 				</div>
 			</div>
 
+			<!-- Assessments -->
+			<div class="col-md-6">
+				<div class='panel panel-default'>
+				    <div class='panel-heading'><h4>Assessments</h4></div>
+				    <div class='panel-body'>
+				    	<ul class="nav nav-tabs" id="assessments">
+				    		<li class="active"><a href="#notstarted" data-toggle="tab">Not Started</a></li>
+				    		<li><a href="#progress" data-toggle="tab">In Progress</a></li>
+				    		<li><a href="#complete" data-toggle="tab">Complete</a></li>
+				    	</ul>
+				    	<div class="tab-content">
+				    		<div id="notstarted" class="tab-pane fade in active">
+					            <p>List of candidates whose assessments need to be started</p>
+					        </div>
+					        <div id="progress" class="tab-pane fade in">
+					            <p>List of candidates whose assessments have been started</p>
+					        </div>
+					        <div id="complete" class="tab-pane fade in">
+					            <p>List of completed assessments</p>
+					        </div>
+				        </div>
+				    </div>
+				</div>
+			</div>
+		</div>
+
+		<div container="row">
 			<div class="col-md-3">
 				<div class='panel panel-default'>
 				    <div class='panel-heading'><h4>Dialogs</h4></div>
