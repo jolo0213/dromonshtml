@@ -24,3 +24,7 @@ body {
 .modal-dialog#dchart {
 	width: 60%;
 }
+
+tr.upcoming {
+	cursor: pointer;
+}

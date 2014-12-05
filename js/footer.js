@@ -1,3 +1,5 @@
+/* Test Chart */
+
 var margin = {top: 20, right: 30, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
@@ -49,6 +51,8 @@ function type(d) {
   d.value = +d.value; // coerce to number
   return d;
 };
+
+/* Custom Functions */
 
 $('#modal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget);
