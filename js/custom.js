@@ -3,7 +3,7 @@ $(document).ready(function(){
     	e.preventDefault();
     	$(this).tab('show');
     });
-    $("#assessments a").click(function(e){
+    $("#ongoing a").click(function(e){
     	e.preventDefault();
     	$(this).tab('show');
     });
