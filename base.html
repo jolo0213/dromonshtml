@@ -502,23 +502,99 @@
 	<div class="wizard" id="rankwiz" data-title="Create New Ranking Session">
 	    <div class="wizard-card" data-cardname="general">
 	        <h3>General</h3>
-	        Some content
+	        <form class="form-horizontal" role="form">
+	        	<div class="form-group">
+				    <label for="ranking" class="col-xs-3 control-label">Position Name</label>
+				    <div class="col-xs-9">
+				        <input type="text" class="form-control" id="ranking">
+				    </div>
+				</div>
+				<div class="form-group">
+					<label for="year" class="col-xs-3 control-label">Year</label>
+					<div class="col-xs-9">
+						<select class="form-control" id="questions">
+				        	<option>2015</option>
+				        	<option>2016</option>
+				        </select>
+				    </div>
+				</div>
+				<div class="form-group">
+					<label for="eres" class="col-xs-3 control-label">Upload Eres</label>
+				    <div class="col-xs-9">
+				        <input type="file" accept="csv" id="eres">
+				    </div>
+				</div>
+		    </form>
 	    </div>
 	    <div class="wizard-card" data-cardname="questions">
 	        <h3>Questionnaire</h3>
-	        Some content
+	        <form class="form-horizontal" role="form">
+	        	<div class="form-group">
+				    <label for="questions" class="col-xs-4 control-label">Use Existing Questionnaire</label>
+				    <div class="col-xs-8">
+				    	<select class="form-control" id="questions">
+				        	<option>Set 1</option>
+				        	<option>Set 2</option>
+				        	<option>Set 3</option>
+				        </select>
+				    </div><br><br><br>
+				    <div class="col-xs-offset-4 col-xs-8">
+				    	<p>or</p>
+				    </div><br><br>
+				    <div class="col-xs-offset-4 col-xs-8">
+				    	<a href="#"><button class="btn btn-default">Create New</button></a>
+				    </div>
+				</div>
+			</form>
 	    </div>
 	    <div class="wizard-card" data-cardname="selcandidates">
 	        <h3>Select Candidates</h3>
-	        Some content
+	        <div class="alert alert-warning" role="alert">
+	        	Uploading candidate photos and documents is optional for initial session creation.
+	        </div>
+	        <form class="form-horizontal" role="form">
+	        	<div class="form-group">
+	        		<label for="candidate" class="col-xs-3 control-label">Name</label>
+				    <div class="col-xs-9">
+				    	<select class="form-control" id="questions">
+				        	<option>Name 1</option>
+				        	<option>Name 2</option>
+				        	<option>Name 3</option>
+				        </select>
+				    </div>
+				</div>
+			    <div class="form-group">
+			    	<label for="photo" class="col-xs-3 control-label">Photo</label>
+				    <div class="col-xs-9">
+				        <input type="file" accept="jpg" id="photo">
+				    </div>
+				</div>
+				<div class="form-group">
+		    		<label for="documents" class="col-xs-3 control-label">Documents</label>
+			    	<div class="col-xs-9">
+			        	<input type="file" accept="pdf" id="documents">
+			    	</div>
+				</div>
+	        </form>
+	        <div class="col-xs-offset-3 col-xs-9">
+				<button class="btn btn-primary">Add Another</button>
+			</div>
+			<br><br><br>
+	        <div class="alert alert-info" role="alert">
+				Might change input type here to just be a multi select field and have document and photo upload elsewhere.
+			</div>
 	    </div>
 	    <div class="wizard-card" data-cardname="interviews">
 	        <h3>Schedule Interviews</h3>
-	        Some content
+	        <div class="alert alert-info" role="alert">
+	        	List of candidates to schedule will be generated through a template tag for loop or javascript based on the previous wizard card. Or scheduling might not be included in this creation wizard and be its own separate module.
+			</div>
 	    </div>
 	    <div class="wizard-success">
-        	The new ranking session has been created!
-        	<br><br><button class="btn btn-success closewiz">Finish</button>
+	    	<div class="alert alert-success" role="alert">
+        		The new ranking session has been created!
+        	</div>
+        	<button class="btn btn-success closewiz">Finish</button>
     	</div>
 	</div>
 

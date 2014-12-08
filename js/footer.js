@@ -65,8 +65,8 @@ $('#modal').on('show.bs.modal', function (event) {
 
 $(function() {
     var wizard = $("#rankwiz").wizard({
-      contentHeight: 500,
-      contentWidth: 1000,
+      contentHeight: 550,
+      contentWidth: 850,
       backdrop: 'static',
     });
 
