@@ -62,3 +62,29 @@ $('#modal').on('show.bs.modal', function (event) {
   modal.find('.modal-title').text(head);
   modal.find('.modal-body').text(mbody);
 });
+
+$(function() {
+    var wizard = $("#rankwiz").wizard({
+      contentHeight: 500,
+      contentWidth: 1000,
+      backdrop: 'static',
+    });
+
+    $('#wizbutton').click(function() {
+      wizard.show();
+    });
+
+    wizard.on('submit', function(wizard) {
+      setTimeout(function() {
+        wizard.trigger("success");
+        wizard.submitting = false;
+        wizard.submitSuccess();
+        wizard.hideButtons();
+      }, 2000); 
+    });
+
+    wizard.el.find(".wizard-success .closewiz").click(function() {
+      wizard.reset().close();
+    });
+
+});

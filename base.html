@@ -20,11 +20,16 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
 
+	<!-- Bootstrap Wizard -->
+	<script src="js/bootstrap-wizard.min.js"></script>
+	<link rel="stylesheet" href="css/bootstrap-wizard.css">
+
 	<!-- D3 -->
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 	<!-- Fonts -->
-	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.3.1/css/font-awesome.css" rel="stylesheet">
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
 	<link href='http://fonts.googleapis.com/css?family=Arimo:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
 	<!-- Custom -->
@@ -60,7 +65,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="panel panel-default">
-					<div class="panel-heading"><h4>Rankings</h4></div>
+					<div class="panel-heading"><h4><span class="fa fa-bar-chart"></span> Rankings</h4></div>
 					<div class="panel-body">
 						<ul class="nav nav-tabs" id="ongoing">
 				    		<li class="active"><a href="#ranking1" data-toggle="tab">2015 Residency</a></li>
@@ -79,7 +84,7 @@
 									</div>
 									<center><a href="rank.html"><button class="btn btn-primary">Full Ranking</button></a> <button class="btn btn-default disabled">Lock</button></center><br>
 									<div class="alert alert-info" role="alert">
-						            	Progress bar and current rank toppers can be listed here. Other statistics and graphs too if wanted. Lock will only be available when progress is 100%
+						            	Progress bar and current rank toppers can be listed here. Other statistics and graphs too if wanted. <br><br>Lock will only be available when progress is 100%<br><br>Add Caniddates will open a modal form or new window.
 						            </div>
 								</div>
 								<div class="col-xs-8">
@@ -109,6 +114,7 @@
 								        	</tr>
 								        </tbody>
 						            </table>
+						            <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#candidates">Add Candidates</button>
 						        </div>
 					        </div>
 					        <div id="ranking2" class="tab-pane fade in">
@@ -120,6 +126,7 @@
 	 										<span class="sr-only">20% Complete</span>
 	    								</div>
 									</div>
+									<center><a href="rank.html"><button class="btn btn-primary">Full Ranking</button></a> <button class="btn btn-default disabled">Lock</button></center><br>
 									<div class="alert alert-info" role="alert">
 						            	If there's another concurrent ranking session going, this tab will be here, otherwise none.
 						            </div>
@@ -151,12 +158,15 @@
 								        	</tr>
 								        </tbody>
 						            </table>
+						            <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#candidates">Add Candidates</button>
 						        </div>
 					        </div>
 					        <div id="newranking" class="tab-pane fade in">
 				    			<br>
 				    			<div class="col-xs-4">
-				    				<center><button class="btn btn-primary" data-toggle="modal" data-target="#form">Start New Ranking Session</button><br><br></center>
+				    				<center><button class="btn btn-primary" data-toggle="modal" data-target="#form">Start New Ranking Session</button><br><br>
+
+				    				<button class="btn btn-warning" id="wizbutton">Rank Wizard</button><br><br></center>
 					    			<div class="alert alert-info" role="alert">
 							            Default to this tab if there are no ongoing rankings.
 							        </div>
@@ -180,7 +190,7 @@
 			<!-- Interviews -->
 			<div class="col-md-6">
 				<div class='panel panel-default'>
-				    <div class='panel-heading'><h4>Interviews</h4></div>
+				    <div class='panel-heading'><h4><span class="fa fa-group"></span> Interviews</h4></div>
 				    <div class='panel-body'>
 				    	<ul class="nav nav-tabs nav-justified" id="interviews">
 				    		<li class="active"><a href="#upcoming" data-toggle="tab">Upcoming</a></li>
@@ -194,25 +204,25 @@
 					            	<tr>
 						            	<th>Date</th>
 						            	<th>Candidate</th>
-						            	<th>Interviewers</th>
+						            	<th>Ranking Group</th>
 						            	<th>Location</th>
 						            </tr>
 						           	<tr class="upcoming">
 						           		<td>12/10/14</td>
 						           		<td><a data-toggle="modal" data-target="#modal" data-head="Candidate A" data-body="Specific Interview Details">Candidate A</a></td>
-						           		<td>Interviewer A<br>Interviewer B<br>Interviewer C</td>
+						           		<td>2015 Residency</td>
 						           		<td>KCBD</td>
 						           	</tr>
 						           	<tr>
 						           		<td>12/11/14</td>
 						           		<td>Candidate B</td>
-						           		<td>Interviewer A<br>Interviewer B<br>Interviewer C</td>
+						           		<td>2015 Residency</td>
 						           		<td>Lying-In</td>
 						           	</tr>
 						           	<tr>
 						           		<td>12/12/14</td>
 						           		<td>Candidate C</td>
-						           		<td>Interviewer A<br>Interviewer B<br>Interviewer C</td>
+						           		<td>2015 Other Position</td>
 						           		<td>Hospital</td>
 						           	</tr>
 					            </table>
@@ -278,7 +288,7 @@
 			<!-- Assessments -->
 			<div class="col-md-6">
 				<div class='panel panel-default'>
-				    <div class='panel-heading'><h4>Assessments</h4></div>
+				    <div class='panel-heading'><h4><span class="fa fa-pencil"></span> Assessments</h4></div>
 				    <div class='panel-body'>
 				    	<div class="col-xs-4">
 				  			<center><h4>Upcoming</h4></center>
@@ -439,6 +449,77 @@
 	            </div>
 	        </div>
 	    </div>
+	</div>
+
+	<div class="modal fade" id="candidates" tabindex="-1" role="dialog" aria-labelledby="label" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	                <h4 class="modal-title" id="label">Add Candidates</h4>
+	            </div>
+	            <div class="modal-body">
+	            	<div class="alert alert-info" role="alert">
+	            		This form will have dropdowns to select a candidate from the ERES file for the ranking session. First uploader can only take one image file, the second can take any additional documents. Clicking add another should extend the form with another set of fields for another candidate.
+	            	</div>
+	                <form class="form-horizontal" role="form">
+			        	<div class="form-group">
+						    <label for="candidatename" class="col-xs-3 control-label">Candidate</label>
+						    <div class="col-xs-9">
+						    	<select class="form-control" id="candidatename">
+						        	<option>Name 1</option>
+						        	<option>Name 2</option>
+						        	<option>Name 3</option>
+						        </select>
+						    </div>
+						</div>
+						<div class="form-group">
+						    <label for="photo" class="col-xs-3 control-label">Photo</label>
+						    <div class="col-xs-9">
+						        <input type="file" accept="jpg" id="photo">
+						    </div>
+						</div>
+						<div class="form-group">
+							<label for="documents" class="col-xs-3 control-label">Additional Documents</label>
+						    <div class="col-xs-9">
+						        <input type="file" accept="" id="documents">
+						    </div>
+						</div>
+				    </form>
+				    <div class="col-xs-offset-3">
+				    	<button class="btn btn-primary">Add Another</button>
+				    </div>
+	            </div>
+	            <div class="modal-footer">
+	            	<button type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
+	                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	
+	<!-- Form Wizard -->
+	<div class="wizard" id="rankwiz" data-title="Create New Ranking Session">
+	    <div class="wizard-card" data-cardname="general">
+	        <h3>General</h3>
+	        Some content
+	    </div>
+	    <div class="wizard-card" data-cardname="questions">
+	        <h3>Questionnaire</h3>
+	        Some content
+	    </div>
+	    <div class="wizard-card" data-cardname="selcandidates">
+	        <h3>Select Candidates</h3>
+	        Some content
+	    </div>
+	    <div class="wizard-card" data-cardname="interviews">
+	        <h3>Schedule Interviews</h3>
+	        Some content
+	    </div>
+	    <div class="wizard-success">
+        	The new ranking session has been created!
+        	<br><br><button class="btn btn-success closewiz">Finish</button>
+    	</div>
 	</div>
 
 <!-- Javascript -->
