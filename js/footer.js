@@ -63,6 +63,19 @@ $('#modal').on('show.bs.modal', function (event) {
   modal.find('.modal-body').text(mbody);
 });
 
+/* Bootstrap Wizard */
+function validateRank(el) {
+  var rank = el.val();
+  var retValue = [];
+  if (rank == "") {
+    retValue.status = false;
+    retValue.msg = "Position name cannot be blank";
+  } else {
+    retValue.status = true;
+  }
+  return retValue
+};
+
 $(function() {
     var wizard = $("#rankwiz").wizard({
       contentHeight: 550,
@@ -86,5 +99,4 @@ $(function() {
     wizard.el.find(".wizard-success .closewiz").click(function() {
       wizard.reset().close();
     });
-
 });
